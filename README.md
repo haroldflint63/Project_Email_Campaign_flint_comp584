@@ -1,5 +1,11 @@
 # AI Chips Marketing Email - README
 
+## 🌐 Live Demo
+
+View the email campaign live at: **[https://haroldflint63.github.io/Project_Email_Campaign_flint_comp584/](https://haroldflint63.github.io/Project_Email_Campaign_flint_comp584/)**
+
+The email is hosted on GitHub Pages and showcases all interactive features including animations, responsive design, and interactive elements.
+
 ## Overview
 This is a professional, email-safe HTML marketing email template showcasing revolutionary AI chip technology. The email is designed to be compatible with major email clients while incorporating modern design elements and interactive features.
 
