@@ -12,6 +12,17 @@
       100% { background-position: 0% 50%; letter-spacing: 0.2px; }
     }
 
+    @keyframes slideIn {
+      0% { margin-left: -20px; }
+      100% { margin-left: 0; }
+    }
+
+    @keyframes pulse {
+      0% { border-color: #76b900; }
+      50% { border-color: #4CAF50; }
+      100% { border-color: #76b900; }
+    }
+
     @media only screen and (max-width:600px) {
       .container { width: 100% !important; }
       .stack, .col { display: block !important; width: 100% !important; max-width: 100% !important; }
@@ -40,6 +51,40 @@
 
     .cta:hover { filter: brightness(1.05); }
     .cta:focus { outline: 3px solid #2e7d32; outline-offset: 2px; }
+
+    /* Enhanced interactivity styles */
+    #tab-rtx:checked ~ .tabs .tab-label-rtx { background: #4CAF50; color: #ffffff; }
+    #tab-pro:checked ~ .tabs .tab-label-pro { background: #4CAF50; color: #ffffff; }
+    
+    #more-specs:checked ~ .accordion .accordion-label::before { content: "▼ "; }
+    .accordion-label::before { content: "▶ "; }
+
+    .feature-box { transition: border-color 0.3s; animation: pulse 3s infinite; }
+    .feature-box:hover { border-color: #2E7D32; }
+
+    /* Interactive preference selector */
+    .preference-option { display: none; }
+    #pref-performance:checked ~ .preference-display .pref-performance { display: block; }
+    #pref-efficiency:checked ~ .preference-display .pref-efficiency { display: block; }
+    #pref-balanced:checked ~ .preference-display .pref-balanced { display: block; }
+
+    .pref-label { 
+      display: inline-block; 
+      padding: 8px 16px; 
+      margin: 4px; 
+      border: 2px solid #e0e0e0; 
+      border-radius: 20px; 
+      background: #ffffff; 
+      color: #666; 
+      cursor: pointer; 
+    }
+    #pref-performance:checked ~ .preference-selector .pref-label-performance,
+    #pref-efficiency:checked ~ .preference-selector .pref-label-efficiency,
+    #pref-balanced:checked ~ .preference-selector .pref-label-balanced {
+      background: #4CAF50;
+      color: #ffffff;
+      border-color: #4CAF50;
+    }
   </style>
 </head>
 <body style="margin:0; padding:0; background:#f4f4f4;">
@@ -88,7 +133,7 @@
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                   <tr>
                     <td class="col" width="50%" valign="top" style="width:50%; padding-right:10px;">
-                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa; border-left:4px solid #76b900; border-radius:6px;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="feature-box" style="background:#f8f9fa; border-left:4px solid #76b900; border-radius:6px;">
                         <tr>
                           <td style="padding:14px;">
                             <h3 class="feature-title" style="margin:0 0 8px; font-family: Arial, sans-serif; color:#2E7D32; font-size:18px;">🔥 Ultra-High Throughput</h3>
@@ -101,7 +146,7 @@
                     </td>
 
                     <td class="col" width="50%" valign="top" style="width:50%; padding-left:10px;">
-                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa; border-left:4px solid #76b900; border-radius:6px;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="feature-box" style="background:#f8f9fa; border-left:4px solid #76b900; border-radius:6px;">
                         <tr>
                           <td style="padding:14px;">
                             <h3 class="feature-title" style="margin:0 0 8px; font-family: Arial, sans-serif; color:#2E7D32; font-size:18px;">🧠 AI-Optimized Cores</h3>
@@ -155,16 +200,15 @@
                 <input type="radio" name="product" id="tab-rtx" class="visually-hidden" checked>
                 <input type="radio" name="product" id="tab-pro" class="visually-hidden">
 
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
-                  <tr>
-                    <td align="center" style="padding:6px;">
-                      <label for="tab-rtx" class="tab-label" style="display:inline-block; padding:10px 16px; border-radius:20px; background:#e8f5e9; color:#2e7d32; font-family:Arial, sans-serif; font-size:14px; text-decoration:none;">RTX Series</label>
-                      <label for="tab-pro" class="tab-label" style="display:inline-block; padding:10px 16px; border-radius:20px; background:#f1f8e9; color:#2e7d32; font-family:Arial, sans-serif; font-size:14px; text-decoration:none; margin-left:8px;">AI Pro Series</label>
-                    </td>
-                  </tr>
-                </table>
-
                 <div class="tabs">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:10px;">
+                    <tr>
+                      <td align="center" style="padding:6px;">
+                        <label for="tab-rtx" class="tab-label tab-label-rtx" style="display:inline-block; padding:10px 16px; border-radius:20px; background:#e8f5e9; color:#2e7d32; font-family:Arial, sans-serif; font-size:14px; text-decoration:none; cursor:pointer;">RTX Series</label>
+                        <label for="tab-pro" class="tab-label tab-label-pro" style="display:inline-block; padding:10px 16px; border-radius:20px; background:#f1f8e9; color:#2e7d32; font-family:Arial, sans-serif; font-size:14px; text-decoration:none; margin-left:8px; cursor:pointer;">AI Pro Series</label>
+                      </td>
+                    </tr>
+                  </table>
                   <div class="tab-content content-rtx">
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border:1px solid #e0e0e0; border-radius:8px;">
                       <tr>
@@ -221,7 +265,7 @@
                   <tr>
                     <td style="padding:14px;">
                       <label for="more-specs" class="accordion-label" style="display:block; font-family:Arial, sans-serif; color:#2E7D32; font-size:16px; font-weight:bold; cursor:pointer;">
-                        ▶ More Technical Specs
+                        More Technical Specs
                       </label>
                       <div class="accordion-content" style="margin-top:10px;">
                         <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -242,6 +286,80 @@
                     </td>
                   </tr>
                 </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="px24" style="padding:24px 24px 10px;">
+                <h3 style="margin:0 0 16px; font-family:Arial, sans-serif; color:#2E7D32; font-size:20px; text-align:center;">
+                  🎯 What matters most to you?
+                </h3>
+                
+                <input type="radio" name="preference" id="pref-performance" class="visually-hidden" checked>
+                <input type="radio" name="preference" id="pref-efficiency" class="visually-hidden">
+                <input type="radio" name="preference" id="pref-balanced" class="visually-hidden">
+
+                <div class="preference-selector">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                      <td align="center" style="padding:10px 0;">
+                        <label for="pref-performance" class="pref-label pref-label-performance" style="display:inline-block; padding:10px 18px; margin:4px; border:2px solid #e0e0e0; border-radius:20px; background:#ffffff; color:#666; cursor:pointer; font-family:Arial, sans-serif; font-size:14px;">🚀 Maximum Performance</label>
+                        <label for="pref-efficiency" class="pref-label pref-label-efficiency" style="display:inline-block; padding:10px 18px; margin:4px; border:2px solid #e0e0e0; border-radius:20px; background:#ffffff; color:#666; cursor:pointer; font-family:Arial, sans-serif; font-size:14px;">🌿 Energy Efficiency</label>
+                        <label for="pref-balanced" class="pref-label pref-label-balanced" style="display:inline-block; padding:10px 18px; margin:4px; border:2px solid #e0e0e0; border-radius:20px; background:#ffffff; color:#666; cursor:pointer; font-family:Arial, sans-serif; font-size:14px;">⚖️ Balanced</label>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+                <div class="preference-display">
+                  <div class="preference-option pref-performance">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:16px; background:#f8f9fa; border-left:4px solid #76b900; border-radius:8px;">
+                      <tr>
+                        <td style="padding:16px;">
+                          <h4 style="margin:0 0 8px; font-family:Arial, sans-serif; color:#2E7D32; font-size:17px;">💪 Peak Performance Configuration</h4>
+                          <p class="p" style="margin:0 0 8px; font-family:Arial, sans-serif; color:#555; font-size:14px; line-height:1.5;">
+                            Recommended: <strong>RTX AI Pro 6000</strong> with 48GB memory and dual NVLink support for the most demanding AI workloads.
+                          </p>
+                          <p class="p" style="margin:0; font-family:Arial, sans-serif; color:#666; font-size:13px;">
+                            Perfect for: Large language models, video generation, 3D rendering with AI upscaling
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="preference-option pref-efficiency">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:16px; background:#f8f9fa; border-left:4px solid #76b900; border-radius:8px;">
+                      <tr>
+                        <td style="padding:16px;">
+                          <h4 style="margin:0 0 8px; font-family:Arial, sans-serif; color:#2E7D32; font-size:17px;">🌱 Energy-Efficient Solution</h4>
+                          <p class="p" style="margin:0 0 8px; font-family:Arial, sans-serif; color:#555; font-size:14px; line-height:1.5;">
+                            Recommended: <strong>RTX AI 4000</strong> with optimized power profiles delivering 65% less energy consumption.
+                          </p>
+                          <p class="p" style="margin:0; font-family:Arial, sans-serif; color:#666; font-size:13px;">
+                            Perfect for: Edge AI deployment, continuous inference, sustainable computing
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div class="preference-option pref-balanced">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:16px; background:#f8f9fa; border-left:4px solid #76b900; border-radius:8px;">
+                      <tr>
+                        <td style="padding:16px;">
+                          <h4 style="margin:0 0 8px; font-family:Arial, sans-serif; color:#2E7D32; font-size:17px;">⚡ Best of Both Worlds</h4>
+                          <p class="p" style="margin:0 0 8px; font-family:Arial, sans-serif; color:#555; font-size:14px; line-height:1.5;">
+                            Recommended: <strong>RTX AI 5000</strong> combining excellent performance with moderate power draw.
+                          </p>
+                          <p class="p" style="margin:0; font-family:Arial, sans-serif; color:#666; font-size:13px;">
+                            Perfect for: General AI development, research labs, small to medium enterprises
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
               </td>
             </tr>
 

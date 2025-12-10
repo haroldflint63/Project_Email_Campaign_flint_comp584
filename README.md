@@ -1,5 +1,11 @@
 # AI Chips Marketing Email - README
 
+## 🌐 Live Demo
+
+**View the hosted email template:** [https://haroldflint63.github.io/Project_Email_Campaign_flint_comp584/ai_chips_email.html](https://haroldflint63.github.io/Project_Email_Campaign_flint_comp584/ai_chips_email.html)
+
+The email template is automatically deployed to GitHub Pages whenever changes are pushed to the main branch.
+
 ## Overview
 This is a professional, email-safe HTML marketing email template showcasing revolutionary AI chip technology. The email is designed to be compatible with major email clients while incorporating modern design elements and interactive features.
 
@@ -23,9 +29,12 @@ This is a professional, email-safe HTML marketing email template showcasing revo
 The email includes several interactive elements that work in modern email clients:
 
 1. **Radio Button Tabs** - Switch between RTX and AI Pro product information
-2. **Checkbox Accordion** - Expand/collapse technical specifications
-3. **Animated CTA** - Gradient sweep and letter-spacing animation
-4. **Hover Effects** - Button brightness changes on hover
+2. **Preference Selector** - Choose between Performance, Efficiency, or Balanced configurations
+3. **Checkbox Accordion** - Expand/collapse technical specifications with dynamic arrow indicator
+4. **Animated CTA** - Gradient sweep and letter-spacing animation (no opacity/scale)
+5. **Hover Effects** - Button brightness changes on hover
+6. **Focus States** - Accessible keyboard navigation with visible focus indicators
+7. **Pulse Animation** - Subtle border color animation on feature boxes
 
 ### 🔗 LinkedIn Integration
 The main CTA button links to your LinkedIn profile:
@@ -46,8 +55,16 @@ ai-chips-email.html
 │   ├── RTX Series Tab
 │   └── AI Pro Series Tab
 ├── Technical Specs Accordion
+├── Preference Selector (NEW)
+│   ├── Maximum Performance Option
+│   ├── Energy Efficiency Option
+│   └── Balanced Option
 ├── LinkedIn CTA Button
 └── Footer
+
+assets/
+├── email_testing_report.pdf (132KB)
+└── email_testing_report.md
 ```
 
 ## Email Client Testing
@@ -65,10 +82,35 @@ ai-chips-email.html
 - **Yahoo Mail** - May not support all animations
 
 ### 🧪 Testing Notes:
-- Animations (gradient sweep) may not work in all clients
+- Animations (gradient sweep, pulse) may not work in all clients
 - Interactive tabs/accordion rely on CSS checkbox/radio hacks
 - Some clients will show a static version with all content visible
 - Always test in multiple clients before sending
+- **See `assets/email_testing_report.pdf` for comprehensive testing documentation**
+
+## Testing Report
+
+A comprehensive PDF testing report is available in the `assets/` folder:
+
+**📄 email_testing_report.pdf** (132KB)
+
+The report includes:
+- ✅ Requirements verification for all 7 project components
+- 📊 Email client compatibility matrix (10+ clients tested)
+- 🧪 Interactive feature test scenarios and results
+- ♿ Accessibility testing (WCAG compliance)
+- 📱 Responsive design validation (desktop & mobile)
+- 🔒 Security and privacy checks
+- 📈 Performance metrics
+- 💡 Recommendations for production deployment
+- 📸 Screenshots (desktop, mobile, interactive states)
+
+**Key Findings:**
+- ✅ All requirements successfully implemented
+- ✅ Excellent support in modern browsers and Apple Mail
+- ⚠️ Limited interactivity in Gmail Web and Outlook Windows (expected)
+- ✅ Fully responsive across all breakpoints
+- ✅ No security vulnerabilities detected
 
 ## Customization Guide
 
